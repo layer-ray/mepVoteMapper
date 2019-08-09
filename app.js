@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
@@ -14,9 +13,6 @@ const textRoutes = require('./components/texts/textRoutes');
 const groupRoutes = require('./components/groups/groupRoutes');
 const adminRoutes = require('./components/admin/adminRoutes');
     
-app.use(cors({
-    origin: "https://mep-vote-mapper.herokuapp.com"
-}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 

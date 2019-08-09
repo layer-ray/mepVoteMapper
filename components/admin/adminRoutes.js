@@ -1,5 +1,6 @@
 const path = require('path');
 const router = require('express').Router();
+const cors = require('cors');
 
 const { isAuth } = require('./authMw');
 const {formParser} = require('./formParserMw');
@@ -11,6 +12,10 @@ const {updateMeps} = require('../meps/mepControllers');
 const {updateRcvs} = require('../rcvs/rcvControllers');
 const {updateTexts} = require('../texts/textControllers');
 const {buildGroupsCollection} = require('../groups/groupControllers');
+
+router.use(cors({
+    origin: "https://mep-vote-mapper.herokuapp.com"
+}));
 
 router.get('/direct-login', (req, res, next) => {
     return res.sendFile('public/auth.html', 
