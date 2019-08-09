@@ -31,6 +31,7 @@ exports.login = async (req, res, next) => {
                 {root: path.join(__dirname, '../../')
         });
     }  else {
-        res.json({error: 'login failed'});
+        res.json({error: 'login failed', 
+                  pwd, admin_pwd, admin_user, user});
     };
 };
