@@ -4,6 +4,8 @@ const updateRcvsBtn = document.getElementById('updateRcvs');
 const updateTextsBtn = document.getElementById('updateTexts');
 const createGroupsBtn = document.getElementById('createGroups'); 
 
+const baseUrl = "https://mep-vote-mapper.herokuapp.com";
+
 function submitForm (){
     
     const formData = new FormData(loginForm);
@@ -13,7 +15,7 @@ function submitForm (){
         jsonFormObj[v[0]] = v[1];
     }
 
-    const reqUrl = "http://localhost/direct-login"
+    const reqUrl = baseUrl + "/direct-login"
     const reqOpt = {
         method: 'post',
         headers: {'content-type':'application/json'},
@@ -27,31 +29,31 @@ function submitForm (){
                 console.error(data.error);
             } else {
                 localStorage.setItem('auth', data.fetchResponse);
-                window.location.href = "http://localhost/dashboard";
+                window.location.href = baseUrl + "/dashboard";
             };
         });
 };
 
 function updateMeps () {
-    fetch('https://mep-vote-mapper.herokuapp.com/update-meps')
+    fetch(baseUrl + '/update-meps')
         .then(res => res.json())
         .then(data => console.log('data', data));
 };
 
 function updateRcvs () {
-    fetch('http://localhost/update-rcvs')
+    fetch(baseUrl + '/update-rcvs')
         .then(res => res.json())
         .then(data => console.log('data', data));
 };
 
 function updateTexts () {
-    fetch('http://localhost/update-texts')
+    fetch(baseUrl + '/update-texts')
         .then(res => res.json())
         .then(data => console.log('data', data));
 };
 
 function createGroups() {
-    fetch('http://localhost/create-groups')
+    fetch(baseUrl + '/create-groups')
         .then(res => res.json())
         .then(data => console.log('data', data));    
 }
