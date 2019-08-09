@@ -33,7 +33,7 @@ function submitForm (){
 };
 
 function updateMeps () {
-    fetch('http://localhost/update-meps')
+    fetch('https://mep-vote-mapper.herokuapp.com/update-meps')
         .then(res => res.json())
         .then(data => console.log('data', data));
 };

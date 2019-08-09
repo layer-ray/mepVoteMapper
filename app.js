@@ -14,7 +14,9 @@ const textRoutes = require('./components/texts/textRoutes');
 const groupRoutes = require('./components/groups/groupRoutes');
 const adminRoutes = require('./components/admin/adminRoutes');
     
-app.use(cors());
+app.use(cors({
+    origin: "https://mep-vote-mapper.herokuapp.com"
+}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
