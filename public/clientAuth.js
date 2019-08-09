@@ -13,7 +13,7 @@ function submitForm (){
         jsonFormObj[v[0]] = v[1];
     }
 
-    const reqUrl = "http://localhost:5000/direct-login"
+    const reqUrl = "http://localhost/direct-login"
     const reqOpt = {
         method: 'post',
         headers: {'content-type':'application/json'},
@@ -27,31 +27,31 @@ function submitForm (){
                 console.error(data.error);
             } else {
                 localStorage.setItem('auth', data.fetchResponse);
-                window.location.href = "http://localhost:5000/dashboard";
+                window.location.href = "http://localhost/dashboard";
             };
         });
 };
 
 function updateMeps () {
-    fetch('http://localhost:5000/update-meps')
+    fetch('http://localhost/update-meps')
         .then(res => res.json())
         .then(data => console.log('data', data));
 };
 
 function updateRcvs () {
-    fetch('http://localhost:5000/update-rcvs')
+    fetch('http://localhost/update-rcvs')
         .then(res => res.json())
         .then(data => console.log('data', data));
 };
 
 function updateTexts () {
-    fetch('http://localhost:5000/update-texts')
+    fetch('http://localhost/update-texts')
         .then(res => res.json())
         .then(data => console.log('data', data));
 };
 
 function createGroups() {
-    fetch('http://localhost:5000/create-groups')
+    fetch('http://localhost/create-groups')
         .then(res => res.json())
         .then(data => console.log('data', data));    
 }
