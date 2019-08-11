@@ -18,7 +18,7 @@ const whitelist = [ "https://mep-vote-mapper.herokuapp.com",
                     "https://check-the-vote.herokuapp.com"];
 app.use(cors({
     origin: function(origin, cb) {
-        whitelist.indexOf(origin) !== -1
+        whitelist.indexOf(origin) !== -1 || !origin
             ? cb(null, true)
             : cb(new Error('CORS do not allow request from ' + origin))
     }
