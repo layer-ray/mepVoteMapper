@@ -1,0 +1,45 @@
+body {
+    font-family:  "Lucida Console", Monaco, monospace;
+    color: #444;
+}
+
+form {    
+    width: 50%;
+    min-width: 300px;
+    height: 200px;
+    margin: 200px auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border: 5px groove peachpuff;
+    border-radius: 10px;
+}
+
+label {
+    font-style: italic;
+}
+
+input[type=text],
+input[type=password]{
+    font-size: 0.9rem;
+    border: none;
+    border-bottom: 2px solid #444;
+    padding-left: 1rem;
+}
+
+input[type=text]:focus,
+input[type=password]:focus{
+    box-shadow: -2px -1px 5px #444, 2px -1px 5px peachpuff;
+}
+
+input[type=submit]{
+    width: 50%;
+    background: none;
+    background-color: peachpuff;
+    color: #444;
+    padding: 0.3rem;
+    font-size: 1rem;
+}

@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
-    <button id="createGroups">Create Groups Collection</button>
-
-    <button id="updateMeps">Update Meps</button>
-    <button id="updateRcvs">Update Rcvs</button>
-    <button id="updateTexts">Update texts</button>
+    <div class="split left">
+        <button id="createGroups">Create Groups Collection</button>    
+        <button id="updateMeps">Update Meps</button>
+        <button id="updateRcvs">Update Rcvs</button>
+        <button id="updateTexts">Update texts</button>
+        <button id="logout">Test button</button>
+    </div>
+    <div class="split right" id="logPanel">
+    </div>
 
     <script type="text/javascript"  src="clientAuth.js"></script>
 </body>

@@ -1,0 +1,59 @@
+body {
+    position: relative;
+    height: 100vh;
+}
+
+.split {
+    box-sizing: border-box;
+    position: fixed;
+    height: 100%;
+    width: 50%;
+
+    top: 0;
+
+    overflow: auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.left {
+    left: 0;
+    padding: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    border-right: 1px solid #222;
+
+    background-color: aliceblue;
+}
+
+.left > button {
+    margin: 1rem;
+    background: none;
+
+    width: 50%;
+    padding: 1rem;
+    background-color: #748385;
+    color: aliceblue;
+}
+
+.right {
+    right: 0;
+    justify-content: flex-start;
+    padding: 1rem;
+
+    border: 1px solid aliceblue;
+}
+
+.entry {
+    font-family: Verdana, Geneva, sans-serif
+}
+
+.entry > p {
+    margin-left: 2rem;
+}
+
+.entry > time {
+    font: bold 0.75rem "Lucida Console", Monaco, monospace;
+}

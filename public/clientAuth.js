@@ -3,6 +3,8 @@ const updateMepsBtn = document.getElementById('updateMeps');
 const updateRcvsBtn = document.getElementById('updateRcvs');
 const updateTextsBtn = document.getElementById('updateTexts');
 const createGroupsBtn = document.getElementById('createGroups'); 
+const logoutBtn = document.getElementById('logout');
+const logPanel = document.getElementById('logPanel');
 
 const baseUrl = "https://mep-vote-mapper.herokuapp.com";
 
@@ -58,7 +60,30 @@ function createGroups() {
         .then(data => console.log('data', data));    
 }
 
+function logout() {
+    displayMsg('this is a random number: ' + Math.random());
+}
+
+function displayMsg(msg) {
+    const logEntry = document.createElement('div');
+
+    const logTime = document.createElement('time');    
+    const logMsg = document.createElement('p');
+
+    const currentTime = new Date().toISOString();
+    const rebuiltStr = currentTime.replace('T', '<br/>');
+    logTime.innerHTML = rebuiltStr;
+    logMsg.innerHTML = msg;
+    
+    logEntry.classList.add('entry');
+    logEntry.appendChild(logTime);
+    logEntry.appendChild(logMsg);
+
+    logPanel.appendChild(logEntry);
+}
+
 updateMepsBtn.addEventListener('click', updateMeps);
 updateRcvsBtn.addEventListener('click', updateRcvs);
 updateTextsBtn.addEventListener('click', updateTexts);
 createGroupsBtn.addEventListener('click', createGroups);
+logoutBtn.addEventListener('click', logout);
