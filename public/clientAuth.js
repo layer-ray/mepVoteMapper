@@ -61,7 +61,15 @@ function createGroups() {
 }
 
 function logout() {
-    displayMsg('this is a random number: ' + Math.random());
+    fetch(baseUrl + '/logout')
+        .then(res => res.json())
+        .then( data => {
+            data.error
+                ? displayMsg(data.error)
+                : displayMsg(data.message);
+
+        window.location.replace(baseUrl);
+        })
 }
 
 function displayMsg(msg) {

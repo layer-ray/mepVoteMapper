@@ -6,7 +6,7 @@ const {formParser} = require('./formParserMw');
 
 const {asyncHandler} = require('../errors/common');
 
-const { login } = require('./adminControllers');
+const { login, logout } = require('./adminControllers');
 const {updateMeps} = require('../meps/mepControllers');
 const {updateRcvs} = require('../rcvs/rcvControllers');
 const {updateTexts} = require('../texts/textControllers');
@@ -18,7 +18,7 @@ router.get('/direct-login', (req, res, next) => {
                     });
 })
 router.post('/direct-login', formParser, asyncHandler(login));
-
+router.get('/logout', isAuth, asyncHandler(logout));
 router.get('/update-meps', isAuth, asyncHandler(updateMeps));
 
 router.get('/update-rcvs', isAuth, asyncHandler(updateRcvs));

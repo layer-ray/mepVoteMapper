@@ -2,7 +2,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const {createAuthConn} = require('../../db');
+const {createAuthConn, AuthLogout} = require('../../db');
 
 const admin_user = process.env.ADMIN_USER;
 const admin_pwd = process.env.ADMIN_PASSWORD;
@@ -34,3 +34,9 @@ exports.login = async (req, res, next) => {
         res.json({error: 'login failed'});
     };
 };
+
+exports.logout = (req, res, next) => {
+    AuthLogout();
+    res.clearCookie('auth', { path: '/'});
+    res.json({message: 'connection closed - logged out'});
+}
