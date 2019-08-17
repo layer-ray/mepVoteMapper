@@ -30,7 +30,6 @@ function submitForm (){
             if(data.error){
                 console.error(data.error);
             } else {
-                localStorage.setItem('auth', data.fetchResponse);
                 window.location.href = baseUrl + "/dashboard";
             };
         });

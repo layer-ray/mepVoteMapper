@@ -81,6 +81,6 @@ exports.updateRcvs = async (req, res, next) => {
         }
         
         console.log('bulked');
-        res.json({written: 'ok'});
+        res.json({message: 'ok'});
     }
 };

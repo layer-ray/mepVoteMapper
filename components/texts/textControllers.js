@@ -44,5 +44,5 @@ exports.updateTexts = async (req, res, next) => {
     const texts = await getTextData(codeArr);
     const textObjs = buildTextObjects(texts);
     const results = await AuthText.insertTexts(textObjs);
-    res.json({results});
+    res.json({message: 'Text updated correctly', results});
 };
