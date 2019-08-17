@@ -37,39 +37,40 @@ function submitForm (){
 
 function updateMeps () {
     fetch(baseUrl + '/update-meps')
-        .then(res => res.json())
-        .then(data => displayMsg(data));
+        .then(logData);
 };
 
 function updateRcvs () {
     fetch(baseUrl + '/update-rcvs')
-        .then(res => res.json())
-        .then(data => displayMsg(data));
+        .then(logData);
 };
 
 function updateTexts () {
     fetch(baseUrl + '/update-texts')
-        .then(res => res.json())
-        .then(data => displayMsg(data));
+        .then(logData);
 };
 
 function createGroups() {
     fetch(baseUrl + '/create-groups')
-        .then(res => res.json())
-        .then(data => displayMsg(data));    
+        .then(logData);  
 }
 
 function logout() {
     fetch(baseUrl + '/logout')
-        .then(res => res.json())
-        .then( data => {
-            data.error
+        .then(logData)
+        .then(() => 
+            window.location.replace(baseUrl)
+        );
+}
+
+function logData(res) {
+    res.json()
+        .then(data => {
+            return data.error
                 ? displayMsg(data.error)
                 : displayMsg(data.message);
-
-        window.location.replace(baseUrl);
-        })
-}
+        });        
+};
 
 function displayMsg(msg) {
     const logEntry = document.createElement('div');
