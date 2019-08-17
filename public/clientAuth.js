@@ -39,25 +39,25 @@ function submitForm (){
 function updateMeps () {
     fetch(baseUrl + '/update-meps')
         .then(res => res.json())
-        .then(data => console.log('data', data));
+        .then(data => displayMsg(data));
 };
 
 function updateRcvs () {
     fetch(baseUrl + '/update-rcvs')
         .then(res => res.json())
-        .then(data => console.log('data', data));
+        .then(data => displayMsg(data));
 };
 
 function updateTexts () {
     fetch(baseUrl + '/update-texts')
         .then(res => res.json())
-        .then(data => console.log('data', data));
+        .then(data => displayMsg(data));
 };
 
 function createGroups() {
     fetch(baseUrl + '/create-groups')
         .then(res => res.json())
-        .then(data => console.log('data', data));    
+        .then(data => displayMsg(data));    
 }
 
 function logout() {
