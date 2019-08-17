@@ -32,5 +32,3 @@ exports.createAuthConn = async function createAuthConn() {
 
 // security concerns?
 exports.getAuthConn = () => _authConn;
-
-exports.AuthLogout = () => _authConn.close();
