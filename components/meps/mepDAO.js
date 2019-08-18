@@ -34,6 +34,7 @@ function MEPModel(opts){
                     persId: 1,
                     fullName: 1,
                     voteName: 1,
+                    countryLabel: 1,
                     politicalGroupLabel: 1,
                     nationalPoliticalGroupLabel: 1
                 }},
