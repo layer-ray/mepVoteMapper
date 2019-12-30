@@ -10,7 +10,7 @@ const RCV = require('./rcvDAO')({
 });
 
 const rssFeedUrl = 'http://www.europarl.europa.eu/rss/doc/minutes-plenary/en.xml';
-const docxUrl = `http://www.europarl.europa.eu/sides/getDoc.do?pubRef=-//EP//NONSGML+PV+PLACEHOLDER+RES-RCV+DOC+WORD+V0//EN&language=EN`;
+//const docxUrl = `http://www.europarl.europa.eu/sides/getDoc.do?pubRef=-//EP//NONSGML+PV+PLACEHOLDER+RES-RCV+DOC+WORD+V0//EN&language=EN`;
 
 exports.getMinutesDates = async (req, res, next) => {
     const files = await RCV.getInsertedFiles();
@@ -58,7 +58,7 @@ exports.updateRcvs = async (req, res, next) => {
     await AuthRCV.removeAllRcvs();
     const docs = req.docs || await checkRcvRssFeed(rssFeedUrl);
     const alreadyInDocs = await AuthRCV.getInsertedFiles();
-    let toCreate = [];
+     let toCreate = [];
     for(let doc of docs) {
         if (!alreadyInDocs.find(el => el._id === doc)) {
             toCreate.push(doc);
@@ -68,8 +68,8 @@ exports.updateRcvs = async (req, res, next) => {
         res.json({message: 'Everything up to date! :D'});
     } else {
         console.log('minutes to insert:', toCreate);
-        const docxs = await fetchRcvDocx(docxUrl, toCreate);
-        console.log('fetched');
+        const docxs = await fetchRcvDocx(toCreate);
+       console.log('fetched');
         const markups = await docxToHtml(docxs);
         console.log('parsed');
         const cleanMarkups = await cleanRawMarkups(markups);
