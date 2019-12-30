@@ -49,7 +49,7 @@ exports.buildGroupsCollection = async (req, res, next) => {
             LtR: 7
         },
         {
-            name: "Confederal Group of the European United Left - Nordic Green Left",
+            name: "Group of the European United Left - Nordic Green Left",
             idColor: "#8E2",
             acronim: 'eul',
             LtR: 1
