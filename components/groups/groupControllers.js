@@ -75,5 +75,5 @@ exports.buildGroupsCollection = async (req, res, next) => {
     });
 
     await AuthGroup.insertGroups(groupArr);
-    res.json({fetchResponse: "Groups inserted"});
+    res.json({message: "Groups inserted"});
 };
